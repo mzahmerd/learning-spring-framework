@@ -1,6 +1,6 @@
 package com.mzahmerd.learnspring.game;
 
-public class PacMon  implements  GamingConsole{
+public class PacmanGame implements  GamingConsole{
     public void up(){
         System.out.println("Go up");
     }

@@ -1,9 +1,9 @@
 package com.mzahmerd.learnspring.game;
 
 public class GameRunner {
-    MarioGame game;
-    public GameRunner(MarioGame marioGame) {
-        this.game = marioGame;
+    GamingConsole game;
+    public GameRunner(GamingConsole game) {
+        this.game = game;
     }
 
     public void run() {

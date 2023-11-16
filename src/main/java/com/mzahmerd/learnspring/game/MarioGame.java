@@ -1,10 +1,9 @@
 package com.mzahmerd.learnspring.game;
 
-public class MarioGame {
+public class MarioGame implements GamingConsole {
     public void up(){
         System.out.println("Jump");
     }
-
     public void down(){
         System.out.println("Go into a hole");
     }
