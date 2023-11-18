@@ -1,5 +1,6 @@
-package com.mzahmerd.learnspring;
+package com.mzahmerd.learnspring.helloworld;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -40,12 +41,18 @@ public class HelloWorldConfiguration {
     }
 
     @Bean
-//    No qualifying bean of type 'com.mzahmerd.learnspring.Address'
+//    No qualifying bean of type 'com.mzahmerd.learnspring.helloworld.Address'
 //    available: expected single matching bean but found 2: address2,address3
     @Primary // use this in case multiple candidates found
     public Person person4Parameters(String name, int age, Address address){
         return new Person(name, age, address);
     }
+
+    @Bean
+    public Person person5Qualifier(String name, int age, @Qualifier("address3Qualifier") Address address){
+        return new Person(name, age, address);
+    }
+
     @Bean(name = "address2") //using custom Bean name.
     @Primary // use this in case multiple candidates found
     public Address address(){
@@ -53,6 +60,7 @@ public class HelloWorldConfiguration {
     }
 
     @Bean(name = "address3") //using custom Bean name.
+    @Qualifier("address3Qualifier")
     public Address address3(){
         return new Address("Pantami","Gombe");
     }
