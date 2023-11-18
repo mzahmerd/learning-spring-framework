@@ -1,5 +1,9 @@
 package com.mzahmerd.learnspring.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
+
 public class GameRunner {
     GamingConsole game;
     public GameRunner(GamingConsole game) {

@@ -1,5 +1,6 @@
 package com.mzahmerd.learnspring.game;
 
+import org.springframework.stereotype.Component;
 public interface GamingConsole {
     void up();
     void down();
