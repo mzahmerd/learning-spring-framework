@@ -4,6 +4,8 @@ import com.mzahmerd.learnspring.game.GameRunner;
 import com.mzahmerd.learnspring.game.PacmanGame;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Arrays;
+
 public class App02HelloWorldSpring {
     public static void main(String[] args){
         //1: launch a spring context
@@ -21,10 +23,13 @@ public class App02HelloWorldSpring {
 
         System.out.println(context.getBean("person2MethodCall"));
 
-        System.out.println(context.getBean("userAddress"));
+        System.out.println(context.getBean("address2"));
 
-        System.out.println(context.getBean("person3Parameters"));
 
-//        System.out.println(context.getBean(Address.class)); // using class
+        System.out.println(context.getBean(Person.class));
+
+        System.out.println(context.getBean(Address.class)); // using class
+
+//        Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
     }
 }

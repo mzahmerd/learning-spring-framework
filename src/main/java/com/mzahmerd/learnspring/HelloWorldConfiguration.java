@@ -2,6 +2,7 @@ package com.mzahmerd.learnspring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 //By using record, we:
 //Eliminate verbosity in creating Java Beans
@@ -34,16 +35,25 @@ public class HelloWorldConfiguration {
         return new Person(name(), age(), address());
     }
     @Bean
-    public Person person3Parameters(String name, int age, Address userAddress2){
-        return new Person(name, age, userAddress2);
+    public Person person3Parameters(String name, int age, Address address2){
+        return new Person(name, age, address2);
     }
-    @Bean(name = "userAddress") //using custom Bean name.
+
+    @Bean
+//    No qualifying bean of type 'com.mzahmerd.learnspring.Address'
+//    available: expected single matching bean but found 2: address2,address3
+    @Primary // use this in case multiple candidates found
+    public Person person4Parameters(String name, int age, Address address){
+        return new Person(name, age, address);
+    }
+    @Bean(name = "address2") //using custom Bean name.
+    @Primary // use this in case multiple candidates found
     public Address address(){
         return new Address("Bolari","Gombe");
     }
 
-    @Bean(name = "userAddress2") //using custom Bean name.
-    public Address addres2(){
+    @Bean(name = "address3") //using custom Bean name.
+    public Address address3(){
         return new Address("Pantami","Gombe");
     }
 }
