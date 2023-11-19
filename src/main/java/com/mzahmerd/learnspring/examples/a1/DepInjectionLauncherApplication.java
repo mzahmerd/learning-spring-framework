@@ -13,7 +13,7 @@ class YourBusinessClass{
     @Autowired  //this is not compulsory when using constructor injection, and it's recommended injection type
     public YourBusinessClass(Dependency1 dependency1, Dependency2 dependency2) {
         super();
-        System.out.println(("Constructor injection - Your business class"));git add .
+        System.out.println(("Constructor injection - Your business class"));
 
         this.dependency1 = dependency1;
         this.dependency2 = dependency2;
